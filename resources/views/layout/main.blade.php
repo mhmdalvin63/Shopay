@@ -213,28 +213,28 @@
                 </a>
               </li>
               <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="/petugas" class="nav-link">
                     <i class="mdi mdi-clipboard-account menu-icon"></i>
                     <span class="menu-title">Data Petugas</span>
                     {{-- <i class="menu-arrow"></i> --}}
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/siswa" class="nav-link">
                     <i class="mdi mdi-account-card-details menu-icon"></i>
                     <span class="menu-title">Data Siswa</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/kelas" class="nav-link">
                     <i class="mdi mdi-school menu-icon"></i>
                     <span class="menu-title">Data Kelas</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="spp" class="nav-link">
                     <i class="mdi mdi-coin menu-icon"></i>
                     <span class="menu-title">Data SPP</span>
                     <i class="menu-arrow"></i>
@@ -266,7 +266,7 @@
 						<div class="col-sm-6 mb-4 mb-xl-0">
 							<div class="d-lg-flex align-items-center">
 								<div>
-									<h3 class="text-dark font-weight-bold mb-2">Hi, welcome back!</h3>
+									<h3 class="text-dark font-weight-bold mb-2">@yield('title')</h3>
 									<h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6>
 								</div>
 								<div class="ms-lg-5 d-lg-flex d-none">
