@@ -227,14 +227,14 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="{{ route('kelas_index') }}" class="nav-link">
+                  <a href="/kelas" class="nav-link">
                     <i class="mdi mdi-school menu-icon"></i>
                     <span class="menu-title">Data Kelas</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="spp" class="nav-link">
+                  <a href="/spp" class="nav-link">
                     <i class="mdi mdi-coin menu-icon"></i>
                     <span class="menu-title">Data SPP</span>
                     <i class="menu-arrow"></i>

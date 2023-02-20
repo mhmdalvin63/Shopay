@@ -27,7 +27,7 @@ Route::put('kelas/update/{id}',[KelasController::class,'update'])->name('kelas_u
 Route::get('kelas/show/{id}',[KelasController::class,'show'])->name('kelas_show');
 Route::delete('kelas/delete/{id}',[KelasController::class,'destroy'])->name('kelas_delete');
 
-// D A T A   K E L A S  
+// D A T A   P E T U G A S 
 Route::get('petugas',[PetugasController::class,'index'])->name('petugas_index');
 Route::get('petugas/create',[PetugasController::class,'create'])->name('petugas_create');
 Route::post('petugas/store',[PetugasController::class,'store'])->name('petugas_store');
@@ -36,7 +36,7 @@ Route::put('petugas/update/{id}',[PetugasController::class,'update'])->name('pet
 Route::get('petugas/show/{id}',[PetugasController::class,'show'])->name('petugas_show');
 Route::delete('petugas/delete/{id}',[PetugasController::class,'destroy'])->name('petugas_delete');
 
-// D A T A   K E L A S  
+// D A T A   S P P  
 Route::get('spp',[SppController::class,'index'])->name('spp_index');
 Route::get('spp/create',[SppController::class,'create'])->name('spp_create');
 Route::post('spp/store',[SppController::class,'store'])->name('spp_store');

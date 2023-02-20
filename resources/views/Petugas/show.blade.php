@@ -1,26 +1,56 @@
 @extends('layout.main')
 @section('title', 'Show Data Petugas')
 @section('content')
-<div class="row">
-    <div class="col-md-12">
+<style>
+.title h1{
+    font-weight: bold;
+    font-family: monospace;
+}
+</style>
+<div class="row d-flex justify-content-center">
+    <div class="col-md-5">
         <div class="card">
             <div class="card-body">
                 <div class="basic-form">
                     <form action="" method="POST">
                         @csrf
-                        <div class="form-group">
-                            <label for="exampleInputUsername1">Username :</label>
-                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Masukkan Username Petugas..." name="username" value="{{ $Petugas->username }}" >
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputUsername1">Password :</label>
-                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Masukkan Password..." name="password" value="{{ $Petugas->password }}">
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputUsername1">Nama Petugas :</label>
-                            <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Masukkan Nama Petugas..." name="nama_petugas" value="{{ $Petugas->nama_petugas }}">
-                          </div>
-                        <a href="{{ route('petugas_index') }}" class="btn btn-outline-warning btn-icon-text">                                                  
+                        <div class="row">
+                            <div class="col-md-12 text-center title mb-5">
+                                <h1>Data Petugas</h1>
+                            </div>
+                            <div class="col-md-12 text-start data mb-2 text-center">
+                                <div class="row">
+                                    <div class="col-md-5 text-start"><h3><b>ID</b></h3></div>
+                                    <div class="col-md-2">:</div>
+                                    <div class="col-md-5 text-start"><h4>{{ $Petugas->id }}</h4></div>
+                                </div>
+                            </div>
+                            <hr class="bg-danger border-2 border-top border-danger">
+                            <div class="col-md-12 text-start data mb-2 text-center">
+                                <div class="row">
+                                    <div class="col-md-5 text-start"><h3><b>Nama Petugas</b></h3></div>
+                                    <div class="col-md-2">:</div>
+                                    <div class="col-md-5 text-start"><h4>{{ $Petugas->nama_petugas }}</h4></div>
+                                </div>
+                            </div>
+                            <hr class="bg-danger border-2 border-top border-danger">
+                            <div class="col-md-12 text-start data mb-2 text-center">
+                                <div class="row">
+                                    <div class="col-md-5 text-start"><h3><b>Username</b></h3></div>
+                                    <div class="col-md-2">:</div>
+                                    <div class="col-md-5 text-start"><h4>{{ $Petugas->username }}</h4></div>
+                                </div>
+                            </div>
+                            <hr class="bg-danger border-2 border-top border-danger">
+                            <div class="col-md-12 text-start data mb-2 text-center">
+                                <div class="row">
+                                    <div class="col-md-5 text-start"><h3><b>Password</b></h3></div>
+                                    <div class="col-md-2">:</div>
+                                    <div class="col-md-5 text-start"><h4>{{ $Petugas->password }}</h4></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ route('petugas_index') }}" class="btn btn-outline-warning btn-icon-text mt-4">                                                  
                             Kembali
                         </a>
                     </form>
