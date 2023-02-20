@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SppController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PetugasController;
 
@@ -34,3 +35,12 @@ Route::get('petugas/edit/{id}',[PetugasController::class,'edit'])->name('petugas
 Route::put('petugas/update/{id}',[PetugasController::class,'update'])->name('petugas_update');
 Route::get('petugas/show/{id}',[PetugasController::class,'show'])->name('petugas_show');
 Route::delete('petugas/delete/{id}',[PetugasController::class,'destroy'])->name('petugas_delete');
+
+// D A T A   K E L A S  
+Route::get('spp',[SppController::class,'index'])->name('spp_index');
+Route::get('spp/create',[SppController::class,'create'])->name('spp_create');
+Route::post('spp/store',[SppController::class,'store'])->name('spp_store');
+Route::get('spp/edit/{id}',[SppController::class,'edit'])->name('spp_edit');
+Route::put('spp/update/{id}',[SppController::class,'update'])->name('spp_update');
+Route::get('spp/show/{id}',[SppController::class,'show'])->name('spp_show');
+Route::delete('spp/delete/{id}',[SppController::class,'destroy'])->name('spp_delete');
