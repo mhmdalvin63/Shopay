@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SppController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PetugasController;
 
 /*
@@ -44,3 +45,12 @@ Route::get('spp/edit/{id}',[SppController::class,'edit'])->name('spp_edit');
 Route::put('spp/update/{id}',[SppController::class,'update'])->name('spp_update');
 Route::get('spp/show/{id}',[SppController::class,'show'])->name('spp_show');
 Route::delete('spp/delete/{id}',[SppController::class,'destroy'])->name('spp_delete');
+
+// D A T A   S I S W A
+Route::get('siswa',[SiswaController::class,'index'])->name('siswa_index');
+Route::get('siswa/create',[SiswaController::class,'create'])->name('siswa_create');
+Route::post('siswa/store',[SiswaController::class,'store'])->name('siswa_store');
+Route::get('siswa/edit/{id}',[SiswaController::class,'edit'])->name('siswa_edit');
+Route::put('siswa/update/{id}',[SiswaController::class,'update'])->name('siswa_update');
+Route::get('siswa/show/{id}',[SiswaController::class,'show'])->name('siswa_show');
+Route::delete('siswa/delete/{id}',[SiswaController::class,'destroy'])->name('siswa_delete');

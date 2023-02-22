@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{ asset('template/css/style.css')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('template/images/favicon.png')}}" />
+
+    <link rel="stylesheet" href="{{ asset('template/vendors/select2/select2.min.css') }} ">
+    <link rel="stylesheet" href="{{ asset('template/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }} ">
   </head>
   <body>
     <div class="container-scroller">
@@ -340,5 +343,11 @@
     <!-- Custom js for this page-->
     <script src="{{asset('template/js/dashboard.js')}} "></script>
     <!-- End custom js for this page-->
+
+    <script src="{{ asset('template/vendors/typeahead.js/typeahead.bundle.min.js') }} "></script>
+    <script src="{{ asset('template/vendors/select2/select2.min.js') }} "></script>
+    <script src="{{ asset('template/js/file-upload.js') }} "></script>
+    <script src="{{ asset('template/js/typeahead.js') }} "></script>
+    <script src="{{ asset('template/js/select2.js') }} "></script>
   </body>
 </html>
