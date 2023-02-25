@@ -19,6 +19,9 @@ use App\Http\Controllers\PetugasController;
 
 Route::get('/', function () {return view('login');});
 
+Route::get('/UI', function () {return view('UI-Siswa');});
+Route::get('/UI-id', function () {return view('UI-Siswa-detail');});
+
 // D A T A   K E L A S  
 Route::get('kelas',[KelasController::class,'index'])->name('kelas_index');
 Route::get('kelas/create',[KelasController::class,'create'])->name('kelas_create');
