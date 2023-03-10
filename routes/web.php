@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\SiswaFrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SppController;
 use App\Http\Controllers\KelasController;
@@ -20,7 +21,7 @@ use App\Http\Controllers\PembayaranController;
 
 Route::get('/', function () {return view('login');});
 
-Route::get('/UI', function () {return view('UI-Siswa');});
+Route::get('/UI',[SiswaFrontController::class,'PembayaranUser']);
 Route::get('/UI-id', function () {return view('UI-Siswa-detail');});
 
 // D A T A   K E L A S  
