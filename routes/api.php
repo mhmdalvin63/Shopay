@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // P E M B A Y A R A N
 Route::get('pembayaran', [PembayaranApiController::class, 'index']);
+Route::get('pembayaran/{id}', [PembayaranApiController::class, 'show']);

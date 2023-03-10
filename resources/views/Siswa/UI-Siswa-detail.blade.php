@@ -36,7 +36,7 @@
 
                 <div class="col-md-7 p-4 " >
                     <div class="right_content py-3" style="background-color: white; border-radius: 2rem;">
-                        <div class="top_content text-center">
+                        <div class="top_content text-center mt-3">
                             <img class="mb-3" src="{{asset('template/images/green-success.png')}}" alt="">
                             <h3 class="mb-5">Pembayaran Berhasil</h3>
                             <hr class="bg-danger border-3 border-top border-success">
@@ -46,17 +46,17 @@
                         <div class="middle_content d-flex px-5" style="justify-content: center;">
                             <div class="row">
                                 <div class="col-md-6 mt-3"><h5>ID Pembayaran</h5></div>
-                                <div class="col-md-6 mt-3 text-end"><h5>1</h5></div>
+                                <div class="col-md-6 mt-3 text-end"><h5>{{$Pembayaran->id}}</h5></div>
                                 <div class="col-md-6 mt-3"><h5>Nama Petugas</h5></div>
-                                <div class="col-md-6 mt-3 text-end"><h5>Agni Rafli</h5></div>
+                                <div class="col-md-6 mt-3 text-end"><h5>{{$Pembayaran->petugas->nama_petugas}}</h5></div>
                                 <div class="col-md-6 mt-3"><h5>Tanggal Pembayaran</h5></div>
-                                <div class="col-md-6 mt-3 text-end"><h5>06-03-2022</h5></div>
+                                <div class="col-md-6 mt-3 text-end"><h5>{{$Pembayaran->tgl_bayar}}</h5></div>
                                 <div class="col-md-6 mt-3"><h5>Pembayaran Bulan</h5></div>
-                                <div class="col-md-6 mt-3 text-end"><h5>Januari</h5></div>
+                                <div class="col-md-6 mt-3 text-end"><h5>{{$Pembayaran->bulan_bayar}}</h5></div>
                                 <div class="col-md-6 mt-3"><h5>Pembayaran Tahun</h5></div>
-                                <div class="col-md-6 mt-3 text-end"><h5>2022</h5></div>
+                                <div class="col-md-6 mt-3 text-end"><h5>{{$Pembayaran->tahun_bayar}}</h5></div>
                                 <div class="col-md-6 mt-3"><h5>Jumlah Bayar</h5></div>
-                                <div class="col-md-6 mt-3 text-end"><h5>Rp. 100.000</h5></div>
+                                <div class="col-md-6 mt-3 text-end"><h5>Rp.{{number_format($Pembayaran->jumlah_bayar, 0,",",".")}}</h5></div>
                             </div>
                         </div>
                         <hr class="bg-danger border-3 border-top border-success">

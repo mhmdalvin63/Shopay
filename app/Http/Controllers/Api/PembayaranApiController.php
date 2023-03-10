@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\PembayaranResource;
 // use App\Http\Controllers\Api\PembayaranFrontController;
 
-class PembayaranFrontController extends Controller
+class PembayaranApiController extends Controller
 {
     public function index(){
         $Pembayaran = Pembayaran::latest()->get();
@@ -18,5 +18,14 @@ class PembayaranFrontController extends Controller
                 'success' => true,  
             ]);
             return view("Siswa.UI-Siswa",compact('Pembayaran'));
+    }
+    public function show($id){
+        $Pembayaran = Pembayaran::find($id);
+        if ($Pembayaran) {
+            return response()->json(['Pembayaran'=>$Pembayaran], 200);
+            return view("Siswa.UI-Siswa-detail",compact('Pembayaran'));
+        } else{
+            return response()->json(['message'=>'Tidak Ada Data'], 200);
+        };
     }
 }

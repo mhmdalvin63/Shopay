@@ -22,7 +22,7 @@ use App\Http\Controllers\PembayaranController;
 Route::get('/', function () {return view('login');});
 
 Route::get('/UI',[SiswaFrontController::class,'PembayaranUser']);
-Route::get('/UI-id', function () {return view('UI-Siswa-detail');});
+Route::get('/UI/{id}', [SiswaFrontController::class,'DetailPembayaranUser'])->name('detail_pembayaran');
 
 // D A T A   K E L A S  
 Route::get('kelas',[KelasController::class,'index'])->name('kelas_index');

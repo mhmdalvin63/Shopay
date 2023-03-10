@@ -57,13 +57,16 @@
             <div class="row">
                 <div class="col-md-12"><h1 class="text-center mb-5" style="color: #0E52B7;">History Pembayaran</h1></div>
                 @foreach ($Pembayaran as $item)
-                <a href="/UI-id" style="text-decoration: none;">
+                <a href="{{route('detail_pembayaran', $item->id)}}" style="text-decoration: none;">
                     <div class="col-md-12 px-5 py-1 mt-5" style="background-color: #0E52B7; color: white; border-radius: 25px;">
                         <div class="row d-flex" id="list_history">
                             <div class="col-md-2"><img width="75%" src="{{asset('template/images/icon-list-history.png')}}" alt=""></div>
                             <div class="col-md-5">
-                                <h2>{{$item->bulan_bayar}}</h2>
-                                <h4 style="opacity: 50%;">{{$item->nama_petugas}}</h4>
+                                <div class="waktu d-flex gap-2">
+                                    <h2>{{$item->bulan_bayar}}</h2>
+                                    <h2>{{$item->tahun_bayar}}</h2>
+                                </div>
+                                <h4 style="opacity: 50%;">{{$item->petugas->nama_petugas}}</h4>
                             </div>
                             <div class="col-md-3 text-center">
                                 <h4>Rp.{{number_format($item->jumlah_bayar, 0,",",".")}}</h4>

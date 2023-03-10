@@ -19,4 +19,24 @@ class SiswaFrontController extends Controller
 
         return view("Siswa.UI-Siswa",compact('Pembayaran'));
     }
+    public function DetailPembayaranUser($id){
+        $Pembayaran = Pembayaran::find($id);
+        // dd($Pembayaran);
+        if ($Pembayaran) {
+            return view("Siswa.UI-Siswa-detail",compact('Pembayaran'));
+        } else{
+            return response()->json(['message'=>'Tidak Ada Data Pembayaran'], 200);
+        };
+    }
+
+    // public function DetailPembayaranUser($id){
+    //     $Pembayaran = Pembayaran::find($id);
+    //     if ($Pembayaran) {
+    //         return view("Siswa.UI-Siswa-detail",compact('Pembayaran'));
+    //     } else{
+    //         return response()->json(['message'=>'Tidak Ada Data'], 200);
+    //     };
+
+    //     return view("Siswa.UI-Siswa-detail",compact('Pembayaran'));
+    // }
 }
