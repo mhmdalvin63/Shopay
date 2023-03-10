@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="{{ asset('template/vendors/select2/select2.min.css') }} ">
     <link rel="stylesheet" href="{{ asset('template/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -244,14 +245,14 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="/pembayaran" class="nav-link">
                     <i class="mdi mdi-format-align-center menu-icon"></i>
                     <span class="menu-title">Input Transaksi</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>
               <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="/history" class="nav-link">
                     <i class="mdi mdi-history menu-icon"></i>
                     <span class="menu-title">History</span>
                     <i class="menu-arrow"></i>

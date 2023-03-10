@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\spp;
+// use App\Models\spp;
 use App\Models\siswa;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

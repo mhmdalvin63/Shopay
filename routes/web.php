@@ -5,6 +5,7 @@ use App\Http\Controllers\SppController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,22 @@ Route::get('siswa/edit/{id}',[SiswaController::class,'edit'])->name('siswa_edit'
 Route::put('siswa/update/{id}',[SiswaController::class,'update'])->name('siswa_update');
 Route::get('siswa/show/{id}',[SiswaController::class,'show'])->name('siswa_show');
 Route::delete('siswa/delete/{id}',[SiswaController::class,'destroy'])->name('siswa_delete');
+
+// D A T A  P E M B A Y A R A N
+Route::get('pembayaran',[PembayaranController::class,'index_siswa'])->name('pembayaran_index');
+Route::get('pembayaran/show/{id}',[PembayaranController::class,'show_siswa'])->name('pembayaran_show');
+Route::get('pembayaran/create',[PembayaranController::class,'create'])->name('pembayaran_create');
+Route::post('pembayaran/store',[PembayaranController::class,'store'])->name('pembayaran_store');
+Route::get('pembayaran/edit/{id}',[PembayaranController::class,'edit'])->name('pembayaran_edit');
+Route::put('pembayaran/update/{id}',[PembayaranController::class,'update'])->name('pembayaran_update');
+Route::delete('pembayaran/delete/{id}',[PembayaranController::class,'destroy'])->name('pembayaran_delete');
+
+// D A T A   H I S T O R Y
+// Route::get('/history', function () {return view('History.index');});
+Route::get('history',[PembayaranController::class,'show_history'])->name('history_index');
+// Route::get('history/create',[HistoryController::class,'create'])->name('history_create');
+// Route::post('history/store',[HistoryController::class,'store'])->name('history_store');
+// Route::get('history/edit/{id}',[HistoryController::class,'edit'])->name('history_edit');
+// Route::put('history/update/{id}',[HistoryController::class,'update'])->name('history_update');
+// Route::get('history/show/{id}',[HistoryController::class,'show'])->name('history_show');
+// Route::delete('history/delete/{id}',[HistoryController::class,'destroy'])->name('history_delete');

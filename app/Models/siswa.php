@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\spp;
 use App\Models\Kelas;
+// use App\Models\siswa;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,4 +25,7 @@ class siswa extends Model
         return $this->belongsTo(spp::class, 'id_spp');
     }
 
+    public function pembayaran(){
+        return $this->hasMany(Pembayaran::class);
+    }
 }
