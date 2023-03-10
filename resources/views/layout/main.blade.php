@@ -211,7 +211,7 @@
         <div class="container">
             <ul class="nav page-navigation">
               <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="/dashboard">
                   <i class="mdi mdi-file-document-box menu-icon"></i>
                   <span class="menu-title">Dashboard</span>
                 </a>
@@ -266,7 +266,7 @@
 		<div class="container-fluid page-body-wrapper">
 			<div class="main-panel">
 				<div class="content-wrapper">
-					<div class="row">
+					<div class="row" id="toppp">
 						<div class="col-sm-6 mb-4 mb-xl-0">
 							<div class="d-lg-flex align-items-center">
 								<div>

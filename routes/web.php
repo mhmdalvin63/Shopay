@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Front\SiswaFrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SppController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\PembayaranController;
 */
 
 Route::get('/', function () {return view('login');});
+
+Route::get('dashboard', [DashboardController::class,'index']);
 
 Route::get('/UI',[SiswaFrontController::class,'PembayaranUser']);
 Route::get('/UI/{id}', [SiswaFrontController::class,'DetailPembayaranUser'])->name('detail_pembayaran');
