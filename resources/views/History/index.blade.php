@@ -52,17 +52,15 @@ form.example::after {
         </div>
         <div class="table-responsive text-center">
           <table class="table table-hover table-striped">
-            {{-- <thead>
+            <thead>
               <tr>
                 <th>ID</th>
-                <th>NISN</th>
-                <th>NIS</th>
-                <th>Nama</th>
-                <th>Kelas</th>
-                <th>Alamat</th>
-                <th>No Telepon</th>
-                <th>Tahun</th>
-                <th>SPP</th>
+                <th>Nama Petugas</th>
+                <th>Nama Siswa</th>
+                <th>Tanggal Bayar</th>
+                <th>Bulan Bayar</th>
+                <th>Tahun Bayar</th>
+                <th>Jumlah Bayar</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -70,14 +68,13 @@ form.example::after {
                 @foreach ($Pembayaran as $item)
                 <tr>
                   <td>{{$item->id}}</td>
-                  <td>{{$item->nisn}}</td>
-                  <td>{{$item->nis}}</td>
-                  <td>{{$item->nama}}</td>
-                  <td>{{$item->kelas->nama_kelas}}</td>
-                  <td>{{$item->alamat}}</td>
-                  <td>{{$item->no_telp}}</td>
-                  <td>{{$item->spps->tahun}}</td>
-                  <td>{{number_format($item->spps->nominal, 0,",",".")}}</td>
+                  <td>{{$item->petugas->nama_petugas}}</td>
+                  <td>{{$item->siswa->nama}}</td>
+                  <td>{{$item->tgl_bayar}}</td>
+                  <td>{{$item->bulan_bayar}}</td>
+                  <td>{{$item->tahun_bayar}}</td>
+                  <td>Rp.{{number_format($item->jumlah_bayar, 0,",",".")}}</td>
+                  {{-- <td>{{number_format($item->spps->nominal, 0,",",".")}}</td>   --}}
                   <td class="d-flex gap-3 justify-content-center">
                     <a href="{{ route('pembayaran_show', $item->id )}}" class="btn btn-outline-primary btn-icon-text">
                         Lihat
@@ -85,7 +82,7 @@ form.example::after {
                   </td>
                 </tr>
                 @endforeach
-            </tbody> --}}
+            </tbody>
           </table>
         </div>
       </div>
