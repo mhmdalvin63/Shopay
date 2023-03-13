@@ -6,7 +6,7 @@ use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Controllers\KelasController;
+// use App\Http\Controllers\KelasController;
 
 class KelasController extends Controller
 {
@@ -34,7 +34,7 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         Kelas::create($request->all());
-        return redirect()->route('kelas_index')->with('success','Data Pemesanan Berhasil Di Tambahkan');
+        return redirect('kelas')->with('success','Data Pemesanan Berhasil Di Tambahkan');
     }
 
     /**
@@ -65,7 +65,7 @@ class KelasController extends Controller
             'nama_kelas' => $request->nama_kelas,
             'kompetensi_keahlian' => $request->kompetensi_keahlian,
         ]);
-        return redirect()->route('kelas_index')->with('success','Data Pemesanan Berhasil Di Edit');
+        return redirect('kelas')->with('success','Data Pemesanan Berhasil Di Edit');
     }
 
     /**
@@ -75,6 +75,6 @@ class KelasController extends Controller
     {
         $Kelas = Kelas::find($id);
         $Kelas->delete();
-        return redirect()->route('kelas_index')->with('success', 'Data deleted successfully');
+        return redirect('kelas')->with('success', 'Data deleted successfully');
     }
 }

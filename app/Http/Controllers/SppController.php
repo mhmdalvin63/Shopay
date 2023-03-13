@@ -6,7 +6,7 @@ use App\Models\spp;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Controllers\SppController;
+// use App\Http\Controllers\SppController;
 
 class SppController extends Controller
 {
@@ -34,7 +34,7 @@ class SppController extends Controller
     public function store(Request $request)
     {
         spp::create($request->all());
-        return redirect()->route('spp_index')->with('success','Data spp Berhasil Di Tambahkan');
+        return redirect('spp')->with('success','Data spp Berhasil Di Tambahkan');
     }
 
     /**
@@ -65,7 +65,7 @@ class SppController extends Controller
             'tahun' => $request->tahun,
             'nominal' => $request->nominal,
         ]);
-        return redirect()->route('spp_index')->with('success','Data Pemesanan Berhasil Di Edit');
+        return redirect('spp')->with('success','Data Pemesanan Berhasil Di Edit');
     }
 
     /**
@@ -75,6 +75,6 @@ class SppController extends Controller
     {
         $spp = spp::find($id);
         $spp->delete();
-        return redirect()->route('spp_index')->with('success', 'Data deleted successfully');
+        return redirect('spp')->with('success', 'Data deleted successfully');
     }
 }

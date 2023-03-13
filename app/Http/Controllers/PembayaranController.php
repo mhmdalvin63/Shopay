@@ -43,6 +43,15 @@ class PembayaranController extends Controller
         return view('Pembayaran.create', compact('Siswa', 'Petugas'));
     }
 
+    public function createpembayaran($id)
+    {
+        // $Pembayaran = Pembayaran::with('kelas','spp')->paginate();
+        $Siswa = siswa::findorfail($id);
+        // $Pembayaran = Pembayaran::all();
+        $Petugas = petugas::all();
+        return view('Pembayaran.create', compact('Siswa', 'Petugas'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -50,6 +59,11 @@ class PembayaranController extends Controller
     {
         Pembayaran::create($request->all());
         return redirect()->route('history_index')->with('success','Data siswa Berhasil Di Tambahkan');
+    }
+    public function storepembayaran(Request $request)
+    {
+        Pembayaran::create($request->all());
+        return redirect('petugashistory')->with('success','Data siswa Berhasil Di Tambahkan');
     }
 
     /**
@@ -60,7 +74,13 @@ class PembayaranController extends Controller
         $Pembayaran = Siswa::find($id);
         return view('Pembayaran.show', compact('Pembayaran'));
     }
+
     public function show_history()
+    {
+        $Pembayaran = Pembayaran::first()->get();
+        return view('History.index', compact('Pembayaran'));
+    }
+    public function petugashistory()
     {
         $Pembayaran = Pembayaran::first()->get();
         return view('History.index', compact('Pembayaran'));
@@ -75,6 +95,13 @@ class PembayaranController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit($id)
+    {
+        $Siswa = siswa::all();
+        $Petugas = petugas::all();
+        $Pembayaran = Pembayaran::findorfail($id);
+        return view('Pembayaran.edit', compact('Pembayaran', 'Siswa', 'Petugas'));
+    }
+    public function editpembayaran($id)
     {
         $Siswa = siswa::all();
         $Petugas = petugas::all();
@@ -97,6 +124,19 @@ class PembayaranController extends Controller
             'jumlah_bayar' => $request->jumlah_bayar,
         ]);
         return redirect()->route('pembayaran_index')->with('success','Data Pemesanan Berhasil Di Edit');
+    }
+    public function updatepembayaran(Request $request, $id)
+    {
+        $Pembayaran = Pembayaran::findorfail($id);
+        $Pembayaran->update([
+            'id_petugas' => $request->id_petugas,
+            'id_siswa' => $request->id_siswa,
+            'tgl_bayar' => $request->tgl_bayar,
+            'bulan_bayar' => $request->bulan_bayar,
+            'tahun_bayar' => $request->tahun_bayar,
+            'jumlah_bayar' => $request->jumlah_bayar,
+        ]);
+        return redirect('petugaspembayaran')->with('success','Data Pemesanan Berhasil Di Edit');
     }
 
     /**

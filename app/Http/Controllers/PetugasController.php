@@ -33,7 +33,7 @@ class PetugasController extends Controller
     public function store(Request $request)
     {
         petugas::create($request->all());
-        return redirect()->route('petugas_index')->with('success','Data Petugas Berhasil Di Tambahkan');
+        return redirect('petugas')->with('success','Data Petugas Berhasil Di Tambahkan');
     }
 
     /**
@@ -65,7 +65,7 @@ class PetugasController extends Controller
             'password' => $request->password,
             'nama_petugas' => $request->nama_petugas,
         ]);
-        return redirect()->route('petugas_index')->with('success','Data Pemesanan Berhasil Di Edit');
+        return redirect('petugas')->with('success','Data Pemesanan Berhasil Di Edit');
     }
 
     /**
@@ -75,6 +75,6 @@ class PetugasController extends Controller
     {
         $Petugas = petugas::find($id);
         $Petugas->delete();
-        return redirect()->route('petugas_index')->with('success', 'Data deleted successfully');
+        return redirect('petugas')->with('success', 'Data deleted successfully');
     }
 }

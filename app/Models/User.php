@@ -21,7 +21,7 @@ class User extends Authenticatable
 
     protected $fillable = [
         'id',
-        'email',
+        'username',
         'password',
         'level',
         'status_aktif',
@@ -38,16 +38,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected static function booted(){
-        static::creating(function($model){
-            $model->created_by = Auth::id();
-            $model->updated_by = Auth::id();
-        });
+    // protected static function booted(){
+    //     static::creating(function($model){
+    //         $model->created_by = Auth::id();
+    //         $model->updated_by = Auth::id();
+    //     });
 
-        static::saving(function($model){
-            $model->updated_by = Auth::id();
-        });
-    }
+    //     static::saving(function($model){
+    //         $model->updated_by = Auth::id();
+    //     });
+    // }
 
     public function admins(){
         return $this->hasMany(admin::class);

@@ -95,9 +95,16 @@
                             <a href="{{ route('pembayaran_index') }}" class="btn btn-outline-warning btn-icon-text mt-4">                                                  
                                 Kembali
                             </a>
+
+                            @if(auth()->user()->level == "admin")
                             <a href="{{ url('pembayaran/create/'. $Pembayaran->id) }}" class="btn btn-outline-success btn-icon-text mt-4">                                                  
                                 Transaksi
                             </a>
+                            @elseif(auth()->user()->level == "petugas")
+                            <a href="{{ url('petugaspembayaran/create/'. $Pembayaran->id) }}" class="btn btn-outline-success btn-icon-text mt-4">                                                  
+                                Transaksi
+                            </a>
+                            @endif
                         </div>
                     </form>
                 </div>

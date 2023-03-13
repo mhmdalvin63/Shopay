@@ -139,12 +139,21 @@
                             <td>{{$item->tahun_bayar}}</td>
                             <td>Rp.{{number_format($item->jumlah_bayar, 0,",",".")}}</td>
                             {{-- <td>{{number_format($item->spps->nominal, 0,",",".")}}</td> --}}
+                            @if(auth()->user()->level == "admin")
                             <td class="d-flex gap-3 justify-content-center">
                                 <a href="{{url('pembayaran/cetak_pdf/'.$item->id)}}"
                                     class="btn btn-outline-primary btn-icon-text">
                                     Cetak
                                 </a>
                             </td>
+                            @elseif(auth()->user()->level == "petugas")
+                            <td class="d-flex gap-3 justify-content-center">
+                                <a href="{{url('petugaspembayaran/cetak_pdf/'.$item->id)}}"
+                                    class="btn btn-outline-primary btn-icon-text">
+                                    Cetak
+                                </a>
+                            </td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

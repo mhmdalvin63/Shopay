@@ -198,7 +198,7 @@
                         <i class="mdi mdi-settings text-primary"></i>
                         Settings
                       </a>
-                      <a class="dropdown-item">
+                      <a class="dropdown-item" href="{{route('logout')}}">
                         <i class="mdi mdi-logout text-primary"></i>
                         Logout
                       </a>
@@ -214,54 +214,105 @@
       <nav class="bottom-navbar">
         <div class="container">
             <ul class="nav page-navigation">
-              <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
-                  <i class="mdi mdi-file-document-box menu-icon"></i>
-                  <span class="menu-title">Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                  <a href="/petugas" class="nav-link">
-                    <i class="mdi mdi-clipboard-account menu-icon"></i>
-                    <span class="menu-title">Data Petugas</span>
-                    {{-- <i class="menu-arrow"></i> --}}
+              @if(auth()->user()->level == "admin")
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard">
+                    <i class="mdi mdi-file-document-box menu-icon"></i>
+                    <span class="menu-title">Dashboard</span>
                   </a>
-              </li>
-              <li class="nav-item">
-                  <a href="/siswa" class="nav-link">
-                    <i class="mdi mdi-account-card-details menu-icon"></i>
-                    <span class="menu-title">Data Siswa</span>
-                    <i class="menu-arrow"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="/petugas" class="nav-link">
+                      <i class="mdi mdi-clipboard-account menu-icon"></i>
+                      <span class="menu-title">Data Petugas</span>
+                      {{-- <i class="menu-arrow"></i> --}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/siswa" class="nav-link">
+                      <i class="mdi mdi-account-card-details menu-icon"></i>
+                      <span class="menu-title">Data Siswa</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/kelas" class="nav-link">
+                      <i class="mdi mdi-school menu-icon"></i>
+                      <span class="menu-title">Data Kelas</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/spp" class="nav-link">
+                      <i class="mdi mdi-coin menu-icon"></i>
+                      <span class="menu-title">Data SPP</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/pembayaran" class="nav-link">
+                      <i class="mdi mdi-format-align-center menu-icon"></i>
+                      <span class="menu-title">Input Transaksi</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/history" class="nav-link">
+                      <i class="mdi mdi-history menu-icon"></i>
+                      <span class="menu-title">History</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+              @elseif(auth()->user()->level == "petugas")
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard">
+                    <i class="mdi mdi-file-document-box menu-icon"></i>
+                    <span class="menu-title">Dashboard</span>
                   </a>
-              </li>
-              <li class="nav-item">
-                  <a href="/kelas" class="nav-link">
-                    <i class="mdi mdi-school menu-icon"></i>
-                    <span class="menu-title">Data Kelas</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="/spp" class="nav-link">
-                    <i class="mdi mdi-coin menu-icon"></i>
-                    <span class="menu-title">Data SPP</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="/pembayaran" class="nav-link">
-                    <i class="mdi mdi-format-align-center menu-icon"></i>
-                    <span class="menu-title">Input Transaksi</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="/history" class="nav-link">
-                    <i class="mdi mdi-history menu-icon"></i>
-                    <span class="menu-title">History</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
+                </li>
+                <li class="nav-item">
+                    <a href="/petugaspetugas" class="nav-link">
+                      <i class="mdi mdi-clipboard-account menu-icon"></i>
+                      <span class="menu-title">Data Petugas</span>
+                      {{-- <i class="menu-arrow"></i> --}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/petugassiswa" class="nav-link">
+                      <i class="mdi mdi-account-card-details menu-icon"></i>
+                      <span class="menu-title">Data Siswa</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/petugaskelas" class="nav-link">
+                      <i class="mdi mdi-school menu-icon"></i>
+                      <span class="menu-title">Data Kelas</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/petugasspp" class="nav-link">
+                      <i class="mdi mdi-coin menu-icon"></i>
+                      <span class="menu-title">Data SPP</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/petugaspembayaran" class="nav-link">
+                      <i class="mdi mdi-format-align-center menu-icon"></i>
+                      <span class="menu-title">Input Transaksi</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/petugashistory" class="nav-link">
+                      <i class="mdi mdi-history menu-icon"></i>
+                      <span class="menu-title">History</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                </li>
+              @endif
             </ul>
         </div>
       </nav>

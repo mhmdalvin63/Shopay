@@ -38,7 +38,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         siswa::create($request->all());
-        return redirect()->route('siswa_index')->with('success','Data siswa Berhasil Di Tambahkan');
+        return redirect('siswa')->with('success','Data siswa Berhasil Di Tambahkan');
     }
 
     /**
@@ -76,7 +76,7 @@ class SiswaController extends Controller
             'no_telp' => $request->no_telp,
             'id_spp' => $request->id_spp,
         ]);
-        return redirect()->route('siswa_index')->with('success','Data Pemesanan Berhasil Di Edit');
+        return redirect('siswa')->with('success','Data Pemesanan Berhasil Di Edit');
     }
 
     /**
@@ -86,6 +86,6 @@ class SiswaController extends Controller
     {
         $siswa = siswa::find($id);
         $siswa->delete();
-        return redirect()->route('siswa_index')->with('success', 'Data deleted successfully');
+        return redirect('siswa')->with('success', 'Data deleted successfully');
     }
 }
