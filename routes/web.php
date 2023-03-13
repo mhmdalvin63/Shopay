@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SppController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SiswaController;
@@ -25,13 +26,21 @@ use App\Http\Controllers\Front\SiswaFrontController;
 // Route::get('/', function () {return view('login');});
 // Route::get('dashboard', [DashboardController::class,'index']);
 
-// U S E R
-Route::get('/UI',[SiswaFrontController::class,'PembayaranUser']);
-Route::get('/UI/{id}', [SiswaFrontController::class,'DetailPembayaranUser'])->name('detail_pembayaran');
+
 
 Route::get('/', [LoginController::class, 'index'])->name('loginform');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::group(['middleware' => ['PreventBack']], function(){
+    Route::get('/UI', [SiswaFrontController::class, 'PembayaranUser']);
+    Route::group(['middleware' => ['auth', 'cekLevel:siswa']], function(){
+                // U S E R
+        Route::get('/UI',[SiswaFrontController::class,'PembayaranUser']);
+        Route::get('/UI/{id}', [SiswaFrontController::class,'DetailPembayaranUser'])->name('detail_pembayaran');
+    });
+});
+
 
 Route::group(['middleware' => ['PreventBack']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -110,12 +119,6 @@ Route::group(['middleware' => ['PreventBack']], function(){
          Route::delete('petugaspembayaran/delete/{id}',[PembayaranController::class,'destroy'])->name('pembayaran_delete');
           // D A T A   H I S T O R Y
         Route::get('petugashistory',[PembayaranController::class,'petugashistory'])->name('history_index');
-    });
-
-    Route::group(['middleware' => ['auth', 'cekLevel:siswa']], function(){
-        // U S E R
-        Route::get('/UI',[SiswaFrontController::class,'PembayaranUser']);
-        Route::get('/UI/{id}', [SiswaFrontController::class,'DetailPembayaranUser'])->name('detail_pembayaran');
     });
 });
 

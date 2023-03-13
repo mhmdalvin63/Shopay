@@ -16,27 +16,17 @@ class AkunSeeder extends Seeder
     {
         $user = [
             [
-                'username' => 'AdminStarbhak1',
-                'password' => bcrypt('adminstarbhak1'),
+                'username' => 'adminschoolcraft',
+                'password' => bcrypt('123456789'),
                 'level' => 'admin',
             ],
             [
-                'username' => 'SiswaTb1',
-                'password' => bcrypt('siswatb1'),
-                'level' => 'siswa',
-            ],
-            [
-                'username' => 'AdminStarbhak2',
-                'password' => bcrypt('adminstarbhak2'),
-                'level' => 'Admin',
-            ],
-            [
-                'username' => 'PetugasStarbhak',
-                'password' => bcrypt('petugasstarbhak'),
+                'username' => 'petugasschoolcraft',
+                'password' => bcrypt('123456789'),
                 'level' => 'petugas',
             ],
             [
-                'username' => 'SiswaStarbhak',
+                'username' => 'siswaschoolcraft',
                 'password' => bcrypt('123456789'),
                 'level' => 'siswa',
             ]

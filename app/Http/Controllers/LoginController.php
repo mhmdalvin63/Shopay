@@ -30,7 +30,13 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($infologin)){
-            return redirect('/dashboard');
+            if(auth()->user()->level == "admin"){
+                return redirect('/dashboard');
+            }elseif(auth()->user()->level == "petugas"){
+                return redirect('/dashboard');
+            }elseif(auth()->user()->level == "siswa"){
+                return redirect('/UI');
+            }
         }else{
             return redirect('/')->withErrors('Username atau Password Salah!');
         }

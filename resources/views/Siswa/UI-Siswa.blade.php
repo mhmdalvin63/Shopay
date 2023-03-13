@@ -56,6 +56,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12"><h1 class="text-center mb-5" style="color: #0E52B7;">History Pembayaran</h1></div>
+                <a class="dropdown-item" href="{{route('logout')}}">
+                    <i class="mdi mdi-logout text-primary"></i>
+                    Logout
+                  </a>
                 @foreach ($Pembayaran as $item)
                 <a href="{{route('detail_pembayaran', $item->id)}}" style="text-decoration: none;">
                     <div class="col-md-12 px-5 py-1 mt-5" style="background-color: #0E52B7; color: white; border-radius: 25px;">
