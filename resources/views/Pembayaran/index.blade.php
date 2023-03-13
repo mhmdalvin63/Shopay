@@ -3,52 +3,102 @@
 @section('content')
 
 <style>
-  form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
+  .search-box{
+  width: fit-content;
+  height: fit-content;
+  position: relative;
 }
-
-/* Style the submit button */
-form.example button {
-  float: left;
-  width: 20%;
+.input-search{
+  height: 50px;
+  width: 50px;
+  border-style: none;
   padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  background-color: #22a6b3;
+  padding-right: 40px;
+  color:#fff;
+}
+.input-search::placeholder{
+  color:rgba(17, 1, 243, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.btn-search{
+  width: 47px;
+  height: 53px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
   cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color:#ffffff ;
+  background-color:transparent;
+  pointer-events: painted;  
 }
-
-form.example button:hover {
-  background: #0b7dda;
+.btn-search:focus ~ .input-search{
+  color:rgba(17, 1, 243, 0.5);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:2px solid rgba(4, 5, 94, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
-
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
+.input-search:focus{
+  color: grey;
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom:2px solid rgba(4, 5, 94, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
 </style>
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
 
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
         <div class="card-title d-flex justify-content-end">
-            <a style="display: none;" href="{{ route('pembayaran_create') }}" class="btn btn-outline-danger btn-icon-text" >
+            {{-- <a style="display: none;" href="{{ route('pembayaran_create') }}" class="btn btn-outline-danger btn-icon-text" >
                 <i class="mdi mdi-upload btn-icon-prepend"></i>                                                    
                 Upload
-            </a>
-            <form class="example" action="action_page.php">
-              <input type="text" placeholder="Search.." name="search">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+            </a> --}}
+            <div class="search-box">
+              <button class="btn-search"><i class="mdi mdi-account-search"></i></button>
+              <input type="text" id="myInput" onkeyup="myFunction()" class="input-search" placeholder="Type to Search...">
+            </div>
         </div>
         <div class="table-responsive text-center">
           <table class="table table-hover table-striped">
@@ -74,9 +124,9 @@ form.example::after {
                 <th>Jumlah Bayar</th> --}}
               </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
                 @foreach ($Pembayaran as $item)
-                <tr>
+                <tr class="tr">
                   <td>{{$item->id}}</td>
                   <td>{{$item->nisn}}</td>
                   <td>{{$item->nis}}</td>

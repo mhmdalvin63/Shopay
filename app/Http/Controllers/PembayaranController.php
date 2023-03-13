@@ -8,6 +8,7 @@ use App\Models\siswa;
 use App\Models\petugas;
 use App\Models\Pembayaran;
 use Illuminate\Http\Request;
+use PDF;
 use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 // use App\Http\Controllers\PembayaranController;
@@ -23,16 +24,23 @@ class PembayaranController extends Controller
         return view('Pembayaran.index', compact('Pembayaran'));
     }
 
+    public function cetak_pdf($id)
+    {
+    	$Pembayaran = Pembayaran::findorfail($id);
+    	$pdf = PDF::loadview('Pembayaran.pembayaran_pdf',['Pembayaran'=>$Pembayaran]);
+    	return $pdf->stream();
+    }
+
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
         // $Pembayaran = Pembayaran::with('kelas','spp')->paginate();
-        $Pembayaran = Pembayaran::all();
-        $Siswa = siswa::all();
+        $Siswa = siswa::findorfail($id);
+        // $Pembayaran = Pembayaran::all();
         $Petugas = petugas::all();
-        return view('Pembayaran.create', compact('Pembayaran', 'Siswa', 'Petugas'));
+        return view('Pembayaran.create', compact('Siswa', 'Petugas'));
     }
 
     /**

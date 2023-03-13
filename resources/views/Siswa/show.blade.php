@@ -54,7 +54,7 @@
                                 <div class="row">
                                     <div class="col-md-5 text-start"><h3><b>Kelas</b></h3></div>
                                     <div class="col-md-2">:</div>
-                                    <div class="col-md-5 text-start"><h4>{{ $siswa->id_kelas }}</h4></div>
+                                    <div class="col-md-5 text-start"><h4>{{ $siswa->kelas->nama_kelas }}</h4></div>
                                 </div>
                             </div>
                             <hr class="bg-danger border-2 border-top border-danger">

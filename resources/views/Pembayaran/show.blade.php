@@ -55,7 +55,7 @@
                                 <div class="row">
                                     <div class="col-md-5 text-start"><h3><b>Kelas</b></h3></div>
                                     <div class="col-md-2">:</div>
-                                    <div class="col-md-5 text-start"><h4>{{ $Pembayaran->id_kelas }}</h4></div>
+                                    <div class="col-md-5 text-start"><h4>{{ $Pembayaran->kelas->nama_kelas }}</h4></div>
                                 </div>
                             </div>
                             <hr class="bg-danger border-2 border-top border-danger">
@@ -95,7 +95,7 @@
                             <a href="{{ route('pembayaran_index') }}" class="btn btn-outline-warning btn-icon-text mt-4">                                                  
                                 Kembali
                             </a>
-                            <a href="{{ route('pembayaran_create') }}" class="btn btn-outline-success btn-icon-text mt-4">                                                  
+                            <a href="{{ url('pembayaran/create/'. $Pembayaran->id) }}" class="btn btn-outline-success btn-icon-text mt-4">                                                  
                                 Transaksi
                             </a>
                         </div>

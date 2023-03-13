@@ -28,7 +28,8 @@
                 </div>
                 <h4>Welcome back!</h4>
                 <h6 class="font-weight-light">Happy to see you again!</h6>
-                <form class="pt-3" >
+                <form action="/login" method="POST" class="pt-3" >
+                  {{ csrf_field() }}
                   <div class="form-group">
                     <label for="exampleInputEmail">Username</label>
                     <div class="input-group">
@@ -37,7 +38,7 @@
                           <i class="mdi mdi-account-outline text-primary"></i>
                         </span>
                       </div>
-                      <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Username">
+                      <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Username" name="username">
                     </div>
                   </div>
                   <div class="form-group">
@@ -48,7 +49,7 @@
                           <i class="mdi mdi-lock-outline text-primary"></i>
                         </span>
                       </div>
-                      <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">                        
+                      <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" name="password">                        
                     </div>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
@@ -61,7 +62,7 @@
                     <a href="" class="auth-link text-black">Forgot password?</a>
                   </div>
                   <div class="my-3">
-                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="">LOGIN</a>
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="">LOGIN</button>
                   </div>
                   <div class="mb-2 d-flex">
                     <button type="button" class="btn btn-facebook auth-form-btn flex-grow me-1">

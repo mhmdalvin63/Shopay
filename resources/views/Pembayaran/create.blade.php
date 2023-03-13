@@ -7,7 +7,7 @@
       <div class="card">
         <div class="card-body p-5">
           {{-- <h4 class="card-title">Lakukan Transaksi Dengan {{$Siswa->nama}}</h4> --}}
-          <form action="{{ route('pembayaran_store') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ url('pembayaran/store') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
                     <div class="form-group">
                       <label for="exampleFormControlSelect2">Nama Petugas :</label>
@@ -18,12 +18,10 @@
                       </select>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect2">Nama Siswa :</label>
-                      <select class="form-control form-control-lg" id="exampleFormControlSelect2" name="id_siswa">
-                        @foreach ($Siswa as $item)
-                        <option value="{{ $item->id}}">{{ $item->nama }}</option>
-                        @endforeach
-                      </select>
+                      <input type="number" class="form-control d-none" id="exampleInputUsername1" name="id_siswa"  value="{{$Siswa->id}}">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="exampleInputUsername1" disabled value="{{$Siswa->nama}}">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputUsername1">Tanggal Bayar :</label>

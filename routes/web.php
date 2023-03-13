@@ -65,8 +65,9 @@ Route::delete('siswa/delete/{id}',[SiswaController::class,'destroy'])->name('sis
 
 // D A T A  P E M B A Y A R A N
 Route::get('pembayaran',[PembayaranController::class,'index_siswa'])->name('pembayaran_index');
+Route::get('pembayaran/cetak_pdf/{id}',[PembayaranController::class,'cetak_pdf']);
 Route::get('pembayaran/show/{id}',[PembayaranController::class,'show_siswa'])->name('pembayaran_show');
-Route::get('pembayaran/create',[PembayaranController::class,'create'])->name('pembayaran_create');
+Route::get('pembayaran/create/{id}',[PembayaranController::class,'create'])->name('pembayaran_create');
 Route::post('pembayaran/store',[PembayaranController::class,'store'])->name('pembayaran_store');
 Route::get('pembayaran/edit/{id}',[PembayaranController::class,'edit'])->name('pembayaran_edit');
 Route::put('pembayaran/update/{id}',[PembayaranController::class,'update'])->name('pembayaran_update');
